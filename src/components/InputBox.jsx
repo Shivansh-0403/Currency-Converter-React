@@ -76,9 +76,12 @@ function InputBox(
     }
 ) {
     return (
-        <div>
-            <div>
-                <label htmlFor="amount">{label}</label>
+        <div 
+            className="p-6 max-w mx-auto bg-emerald-600 rounded-2xl shadow-lg flex 
+                        items-center space-x-4 font-serif text-2xl text-green-300 my-3"
+        >
+            <div className="flex flex-col">
+                <label htmlFor="amount">Amount</label>
                 <input
                     type="number"
                     id="amount"
@@ -87,11 +90,16 @@ function InputBox(
                     placeholder={amount}
                     onChange={onAmountChange}
                     disabled={disabled}
+                    className="bg-lime-300 rounded-md text-emerald-800 font-mono font-normal"
                 />
+            </div>
 
 
-{/* onChange={ (e) => onCurrencyChange && onCurrencyChange(e.target.value)} --- Another way */}
-                <select id="currency" name="currency" onChange={onCurrencyChange}>
+            {/* onChange={ (e) => onCurrencyChange && onCurrencyChange(e.target.value)} --- Another way */}
+            <div className="flex flex-col">
+                <label htmlFor="currency">{label}</label>
+                <select id="currency" name="currency" onChange={onCurrencyChange} 
+                    className="bg-lime-200 rounded-md text-emerald-800 font-serif font-normal text-xl">
                     <option value="usd">{currency}</option>
                     {currencyOptions.map((currency) => (
                         <option value={currency} key={currency}>{currency}</option>
