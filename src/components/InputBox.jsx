@@ -64,16 +64,16 @@
 
 // eslint-disable React/prop-types
 // InputBox Component
-function InputBox(
-    {
-        label,
-        amount = 0,
-        onAmountChange,
-        currencyOptions = [],
-        currency = 'usd',
-        onCurrencyChange,
-        disabled
-    }
+function InputBox(props
+    // {
+    //     label,
+    //     amount = 0,
+    //     onAmountChange,
+    //     currencyOptions = [],
+    //     currency = 'usd',
+    //     onCurrencyChange,
+    //     disabled
+    // }
 ) {
     return (
         <div 
@@ -86,10 +86,10 @@ function InputBox(
                     type="number"
                     id="amount"
                     name="amount"
-                    value={amount}
-                    placeholder={amount}
-                    onChange={onAmountChange}
-                    disabled={disabled}
+                    value={props.amount}
+                    placeholder={props.amount}
+                    onChange={props.onAmountChange}
+                    disabled={props.disabled}
                     className="bg-lime-300 rounded-md text-emerald-800 font-mono font-normal"
                 />
             </div>
@@ -97,11 +97,11 @@ function InputBox(
 
             {/* onChange={ (e) => onCurrencyChange && onCurrencyChange(e.target.value)} --- Another way */}
             <div className="flex flex-col">
-                <label htmlFor="currency">{label}</label>
-                <select id="currency" name="currency" onChange={onCurrencyChange} 
+                <label htmlFor="currency">{props.label}</label>
+                <select id="currency" name="currency" onChange={props.onCurrencyChange} 
                     className="bg-lime-200 rounded-md text-emerald-800 font-serif font-normal text-xl">
-                    <option value="usd">{currency}</option>
-                    {currencyOptions.map((currency) => (
+                    <option value="usd">{props.currency}</option>
+                    {props.currencyOptions.map((currency) => (
                         <option value={currency} key={currency}>{currency}</option>
                     ))}
                 </select>
